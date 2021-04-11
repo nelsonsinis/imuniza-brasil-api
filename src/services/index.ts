@@ -44,14 +44,22 @@ export class Services {
     return response;
   }
 
-  async getByCity(city: string) {
-    const response = ((await this.statesRepository.findOne({
+  async getByCity(city: string, state?: string) {
+    const query: any = {
       cities: {
         $elemMatch: {
           name: city,
         },
       },
-    })) as unknown) as Database.IState;
+    };
+
+    if (state) {
+      query.uuid = state;
+    }
+
+    const response = ((await this.statesRepository.findOne(
+      query,
+    )) as unknown) as Database.IState;
 
     if (!response) {
       throw {
