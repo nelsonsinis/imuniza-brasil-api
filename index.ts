@@ -1,4 +1,6 @@
 import { Application } from './src/config';
+import './src/jobs';
+import './src/config/database';
 
 const app = new Application();
 
