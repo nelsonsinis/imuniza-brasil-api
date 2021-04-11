@@ -15,13 +15,10 @@ export class Router {
 
   init() {
     this.router.get('/countries', (req, res) =>
-      this.controllers.getByCountry(req, res),
-    );
+      this.controllers.getByCountry(req, res));
     this.router.get('/states', (req, res) =>
-      this.controllers.getByState(req, res),
-    );
+      this.controllers.getByState(req, res));
     this.router.get('/cities', (req, res) =>
-      this.controllers.getByCity(req, res),
-    );
+      this.controllers.getByCity(req, res));
   }
 }
