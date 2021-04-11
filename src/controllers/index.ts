@@ -43,7 +43,10 @@ export class Controllers {
 
   async getByCity(req: Request, res: Response) {
     try {
-      const data = await this.services.getByCity(req.query.city as string);
+      const data = await this.services.getByCity(
+        req.query.city as string,
+        req.query.state as string,
+      );
       return res.status(StatusCodes.OK).json(data);
     } catch (error) {
       this.shared.helpers.logger.error(error);
